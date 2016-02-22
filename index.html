@@ -1,0 +1,86 @@
+<!--DOCTYPE HTML -->
+<html>
+<head>
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" type="text/css"/>
+<link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.min.css" type="text/css" />
+<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" type="text/css"/>
+<script type="text/javascript" src="phonegap.js"></script>
+<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+<script type="text/javascript">
+var destinationType;
+// instalar ripple emulator en google chrome
+//$("document").ready(function inicio(){
+document.addEventListener("deviceready",onDeviceReady,false);
+
+
+function onDeviceReady(){
+$("#btnCamara").tap(function pulsacion(){
+    alert("camara iniciada");
+navigator.camera.getPicture(onSuccess,onFail,{quality:50,allowEdit:true,destinationType:destinationType.FILE_URL});
+
+function onSuccess(imageURI) {
+    var image = document.getElementById('myImage');
+    image.src = imageURI;
+}
+
+function onFail(message) {
+    alert('Failed because: ' + message);
+}
+
+});
+}
+        //);
+</script>
+<!--link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<!--script src="http://code.jquery.com/jquery-1.11.1.min.js"></script-->
+<!--script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script-->
+<style type="text/css">
+    #encabezado{
+        text-align: center;
+        text-size: 28px;
+        color:000000;
+        font-weight: bold;       
+    } 
+    #pie{
+        text-align: center;
+        text-size: 14px;
+        color:F85262;
+        font-weight: bold;       
+    }
+     #BckGnd{
+        background-color:F8F4F0;
+             
+    }
+    #Letra{
+        text-align: center;
+        text-size: 14px;
+        color:000000;
+             
+    }
+</style>
+</head>
+<body>
+    <div data-role="page" id="principal">
+	<div data-role="header">
+		<h1>Camara</h1>
+	</div>
+	<div id="BckGnd" data-role="content">
+		
+               
+                <input type="button" value="Acceder a camara" id="btnCamara"/>
+               <img src="" id="myImage"/>
+        </div>
+	
+        <div data-role="footer">
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="#" class="ui-btn">Facebook</a>
+                <a href="#" class="ui-btn">Facebook</a>
+            </div>
+    </div>
+    </div>
+
+</body>
+</html>
